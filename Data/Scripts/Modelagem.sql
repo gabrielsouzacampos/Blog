@@ -617,4 +617,28 @@ BEGIN
 END;
 --
 
+CREATE OR REPLACE PROCEDURE "PROC_FUNCAO_USUARIO" (
+    codigoUsuario  NUMBER,
+    codigoFuncao  NUMBER,
+    strOperacao CHAR
+)
+IS
+  ROW NUMBER;
+BEGIN
+    IF (strOperacao = 'I') THEN
+        INSERT INTO BLOG.FUNCAOUSUARIO (
+            CDUSUARIO,
+            CDFUNCAO
+        ) VALUES (
+            codigoUsuario,
+            codigoFuncao
+        );
+    END IF;
+    
+    IF (strOperacao = 'D') THEN
+        DELETE FROM BLOG.FUNCAOUSUARIO WHERE CDUSUARIO = codigoUsuario AND CDFUNCAO = codigoFuncao;
+    END IF;
+END PROC_FUNCAO_USUARIO;
+--
+
 COMMIT;
