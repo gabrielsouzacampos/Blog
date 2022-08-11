@@ -18,13 +18,10 @@ public class BlogDataContext : DbContext
 
     public DbSet<Usuario> Usuarios { get; set; }
 
-    public DbSet<PFuncaoUsuario> PFuncaoUsuario { get; set; }
-
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
         modelBuilder.HasDefaultSchema("BLOG");
         modelBuilder.ApplyConfiguration(new UsuarioMap());
         modelBuilder.ApplyConfiguration(new PostMap());
-        modelBuilder.Entity<PFuncaoUsuario>().HasNoKey();
     }
 }

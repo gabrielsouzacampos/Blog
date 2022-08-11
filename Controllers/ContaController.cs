@@ -226,7 +226,7 @@ public class ContaController : ControllerBase
             
             _context.Database
                 .ExecuteSqlRaw(
-                    "BEGIN BLOG.PROC_FUNCAO_USUARIO(:codigoUsuario, :codigoFuncao, :strOperacao); END;",
+                    "BEGIN BLOG.PROC_POST_TAG(:codigoPost, :codigoTag, :strOperacao); END;",
                     paramCodigoUsuario,
                     paramCodigoFuncao,
                     paramStrOperacao

@@ -25,11 +25,15 @@ public class Post
     [Column("DTCADASTRO")]
     public DateTime DataCadastro { get; set; }
 
+    public virtual int CDUSUARIO { get; set; }
+    
+    public virtual int CDCATEGORIA { get; set; }
+    
     [ForeignKey("CDCATEGORIA")]
     public Categoria Categoria { get; set; }
 
     [ForeignKey("CDUSUARIO")]
     public Usuario Usuario { get; set; }
 
-    public List<Tag> Tags { get; set; }
+    public IList<Tag> Tags { get; set; }
 }
