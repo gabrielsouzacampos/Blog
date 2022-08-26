@@ -1,41 +1,57 @@
-﻿namespace Blog.Controllers.Tests;
+﻿using Blog.Models;
+
+namespace Blog.Controllers.Tests;
 
 [TestClass()]
 public class TagControllerTests
 {
-    [TestMethod()]
-    public void TagControllerTest()
+    private readonly List<Tag> _tags = new()
     {
-        Assert.Fail();
-    }
+        new Tag
+        {
+            CodigoTag = 1,
+            NomeTag = "FrontEnd",
+            DescricaoTag = "FrontEnd"
+        },
+        new Tag
+        {
+            CodigoTag = 2,
+            NomeTag = "BackEnd",
+            DescricaoTag = "BackEnd"
+        },
+        new Tag
+        {
+            CodigoTag = 3,
+            NomeTag = "Full Stack",
+            DescricaoTag = "Full Stack"
+        },
+    };
+    
+    [TestMethod()]
+    public void BuscaTagPorCodigoSucesso()
+    {
+        bool sucesso = false;
+        int id = 1;
 
-    [TestMethod()]
-    public void GetTest()
-    {
-        Assert.Fail();
-    }
+        var tag = _tags.Where(x => x.CodigoTag == id).ToList();
 
-    [TestMethod()]
-    public void GetByIdAsyncTest()
-    {
-        Assert.Fail();
-    }
+        if (!tag.Count.Equals(0))
+            sucesso = true;
 
-    [TestMethod()]
-    public void PostTest()
-    {
-        Assert.Fail();
+        Assert.AreEqual(true, sucesso);
     }
-
+    
     [TestMethod()]
-    public void PutTest()
+    public void BuscaTagPorCodigoErroNulo()
     {
-        Assert.Fail();
-    }
+        bool sucesso = false;
+        int id = 4;
 
-    [TestMethod()]
-    public void DeleteAsyncTest()
-    {
-        Assert.Fail();
+        var tag = _tags.Where(x => x.CodigoTag == id).ToList();
+
+        if (!tag.Count.Equals(0))
+            sucesso = true;
+
+        Assert.AreEqual(false, sucesso);
     }
 }

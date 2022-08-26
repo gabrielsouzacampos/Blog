@@ -1,47 +1,112 @@
-﻿namespace Blog.Controllers.Tests;
+﻿using Blog.Models;
+
+namespace Blog.Controllers.Tests;
 
 [TestClass()]
 public class PostControllerTests
 {
-    [TestMethod()]
-    public void PostControllerTest()
+    private List<Post> _posts = new()
     {
-        Assert.Fail();
-    }
+        new Post
+        {
+            CodigoPost = 1,
+            Corpo = "Corpo do post",
+            DescricaoPost = "Descrição do post",
+            Sumario = "Sumario",
+            Titulo = "Titulo",
+            DataCadastro = DateTime.Now,
+            Categoria = new()
+            {
+                CodigoCategoria = 1,
+                NomeCategoria = "Frontend",
+                DescricaoCategoria = "Descricação"
+            }
+        },
+        new Post
+        {
+            CodigoPost = 2,
+            Corpo = "Corpo do post",
+            DescricaoPost = "Descrição do post",
+            Sumario = "Sumario",
+            Titulo = "Titulo",
+            DataCadastro = DateTime.Now,
+            Categoria = new()
+            {
+                CodigoCategoria = 1,
+                NomeCategoria = "Frontend",
+                DescricaoCategoria = "Descricação"
+            }
+        },
+        new Post
+        {
+            CodigoPost = 3,
+            Corpo = "Corpo do post",
+            DescricaoPost = "Descrição do post",
+            Sumario = "Sumario",
+            Titulo = "Titulo",
+            DataCadastro = DateTime.Now,
+            Categoria = new()
+            {
+                CodigoCategoria = 1,
+                NomeCategoria = "Frontend",
+                DescricaoCategoria = "Descricação"
+            }
+        },
+    };
 
     [TestMethod()]
-    public void GetTest()
+    public void BuscaPostPorCodigoSucesso()
     {
-        Assert.Fail();
-    }
+        bool sucesso = false;
+        int id = 1;
 
-    [TestMethod()]
-    public void DetalhesAsyncTest()
-    {
-        Assert.Fail();
-    }
+        var post = _posts.Where(x => x.CodigoPost == id).ToList();
 
-    [TestMethod()]
-    public void BuscaPorCategoriaAsyncTest()
-    {
-        Assert.Fail();
-    }
+        if (!post.Count.Equals(0))
+            sucesso = true;
 
-    [TestMethod()]
-    public void PostTest()
-    {
-        Assert.Fail();
+        Assert.AreEqual(true, sucesso);
     }
-
+    
     [TestMethod()]
-    public void InsereTagPostTest()
+    public void BuscaPostPorCodigoErroNulo()
     {
-        Assert.Fail();
+        bool sucesso = false;
+        int id = 4;
+
+        var post = _posts.Where(x => x.CodigoPost == id).ToList();
+
+        if (!post.Count.Equals(0))
+            sucesso = true;
+
+        Assert.AreEqual(false, sucesso);
     }
-
+    
     [TestMethod()]
-    public void DeletaTagPostTest()
+    public void BuscaPostPorCategoriaSucesso()
     {
-        Assert.Fail();
+        bool sucesso = false;
+        int id = 1;
+
+        var post = _posts.Where(x => x.Categoria.CodigoCategoria == id).ToList();
+
+        if (!post.Count.Equals(0))
+            sucesso = true;
+
+        Assert.AreEqual(true, sucesso);
+    }
+    
+    [TestMethod()]
+    public void BuscaPostPorCategoriaErroNulo()
+    {
+        bool sucesso = false;
+        int id = 2;
+
+        var post = _posts.Where(x => x.Categoria.CodigoCategoria == id).ToList();
+
+        if (!post.Count.Equals(0))
+            sucesso = true;
+
+        Assert.AreEqual(false, sucesso);
     }
 }
