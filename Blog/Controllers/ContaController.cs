@@ -117,7 +117,7 @@ public class ContaController : ControllerBase
     [HttpPost("v1/contas/enviar-imagem")]
     public async Task<IActionResult> EnviarImagem([FromBody] EnviarImagemViewModel model)
     {
-        var nomeArquivo = $"{Guid.NewGuid().ToString()}.jpg";
+        var nomeArquivo = $"{Guid.NewGuid()}.jpg";
 
         var data = new Regex(@"^data:image\/[a-z]+;base64,").Replace(model.Base64Image, "");
         var bytes = Convert.FromBase64String(data);
@@ -126,7 +126,7 @@ public class ContaController : ControllerBase
         {
             await System.IO.File.WriteAllBytesAsync($"wwwroot/images/{nomeArquivo}", bytes);
         }
-        catch (System.Exception)
+        catch (Exception)
         {
             return StatusCode(500, new ResultadoViewModel<string>("Falha interna no servidor"));
         }
@@ -144,7 +144,7 @@ public class ContaController : ControllerBase
         {
             _context.Usuarios.Update(usuario);
         }
-        catch (System.Exception)
+        catch (Exception)
         {
             return StatusCode(500, new ResultadoViewModel<string>("Falha interna no servidor"));
         }

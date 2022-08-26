@@ -57,7 +57,7 @@ public class PostController : ControllerBase
                 posts
             }));
         }
-        catch (System.Exception)
+        catch (Exception)
         {
             return StatusCode(500, new ResultadoViewModel<List<Post>>("Falha interna na aplicação."));
         }
@@ -91,7 +91,7 @@ public class PostController : ControllerBase
 
             return Ok(new ResultadoViewModel<ListaPostsViewModel>(post));
         }
-        catch (System.Exception)
+        catch (Exception)
         {
             return StatusCode(500, new ResultadoViewModel<Post>("Falha interna na aplicação."));
         }
@@ -136,7 +136,7 @@ public class PostController : ControllerBase
                 posts
             }));
         }
-        catch (System.Exception)
+        catch (Exception)
         {
           return StatusCode(500, new ResultadoViewModel<List<Post>>("Falha interna na aplicação."));
         }
@@ -183,7 +183,7 @@ public class PostController : ControllerBase
                 new ResultadoViewModel<Post>("Não foi possivel realizar sua solicitação.")
             );
         }
-        catch (System.Exception)
+        catch (Exception)
         {
             return StatusCode(500, new ResultadoViewModel<Post>("Falha interna na aplicação."));
         }
@@ -235,7 +235,7 @@ public class PostController : ControllerBase
                 new ResultadoViewModel<Post>("Não foi possivel realizar sua solicitação.")
             );
         }
-        catch (System.Exception)
+        catch (Exception)
         {
             return StatusCode(500, new ResultadoViewModel<Post>("Falha interna na aplicação."));
         }
@@ -287,7 +287,7 @@ public class PostController : ControllerBase
                 new ResultadoViewModel<Post>("Não foi possivel realizar sua solicitação.")
             );
         }
-        catch (System.Exception)
+        catch (Exception)
         {
             return StatusCode(500, new ResultadoViewModel<Post>("Falha interna na aplicação."));
         }

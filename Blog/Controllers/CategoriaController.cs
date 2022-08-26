@@ -39,7 +39,7 @@ public class CategoriaController : ControllerBase
         {
             return StatusCode(500, new ResultadoViewModel<List<Categoria>>("Não foi possivel realizar sua solicitação."));
         }
-        catch (System.Exception)
+        catch (Exception)
         {
             return StatusCode(500, new ResultadoViewModel<List<Categoria>>("Falha interna na aplicação."));
         }

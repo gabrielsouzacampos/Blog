@@ -38,7 +38,7 @@ public class TagController : ControllerBase
         {
             return StatusCode(500, new ResultadoViewModel<List<Tag>>("Não foi possivel realizar sua solicitação."));
         }
-        catch (System.Exception)
+        catch (Exception)
         {
             return StatusCode(500, new ResultadoViewModel<List<Tag>>("Falha interna na aplicação."));
         }
@@ -60,7 +60,7 @@ public class TagController : ControllerBase
         {
             return StatusCode(500, new ResultadoViewModel<Tag>("Não foi possivel realizar sua solicitação."));
         }
-        catch (System.Exception)
+        catch (Exception)
         {
             return StatusCode(500, new ResultadoViewModel<Tag>("Falha interna na aplicação."));
         }
@@ -90,7 +90,7 @@ public class TagController : ControllerBase
         {
             return StatusCode(500, new ResultadoViewModel<Tag>("Não foi possivel realizar sua solicitação."));
         }
-        catch (System.Exception)
+        catch (Exception)
         {
             return StatusCode(500, new ResultadoViewModel<Tag>("Falha interna na aplicação."));
         }
@@ -118,7 +118,7 @@ public class TagController : ControllerBase
         {
             return StatusCode(500, new ResultadoViewModel<Tag>("Não foi possivel realizar sua solicitação."));
         }
-        catch (System.Exception)
+        catch (Exception)
         {
             return StatusCode(500, new ResultadoViewModel<Tag>("Falha interna na aplicação."));
         }
@@ -143,7 +143,7 @@ public class TagController : ControllerBase
         {
             return StatusCode(500, new ResultadoViewModel<Tag>("Não foi possivel realizar sua solicitação."));
         }
-        catch (System.Exception)
+        catch (Exception)
         {
             return StatusCode(500, new ResultadoViewModel<Tag>("Falha interna na aplicação."));
         }
